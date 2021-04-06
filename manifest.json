@@ -10,7 +10,7 @@
     "scripting"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "appendDecimalHours.js"
   },
   "content_scripts": [{
     "css": ["styles.css"],

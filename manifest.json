@@ -1,6 +1,5 @@
 {
   "manifest_version": 3,
- 
   "name": "Clockify extender",
   "action": {},
   "version": "0.1",
@@ -9,13 +8,30 @@
     "activeTab",
     "scripting"
   ],
-  "background": {
-    "service_worker": "appendDecimalHours.js"
-  },
-  "content_scripts": [{
-    "css": ["styles.css"],
-    "matches": [
-      "https://clockify.me/*"
-    ]
-  }]
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "https://clockify.me/dashboard"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "js": [
+        "appendDecimalHoursDashboard.js"
+      ]
+    },
+    {
+      "run_at": "document_end",
+      "matches": [
+        "https://clockify.me/reports/weekly*"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "js": [
+        "appendDecimalHoursWeeklyReport.js"
+      ]
+    }
+  ]
 }
